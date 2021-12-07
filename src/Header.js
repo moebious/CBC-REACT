@@ -9,6 +9,7 @@ import Brightness7Icon from "@material-ui/icons/Brightness7";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Badge from "@material-ui/core/Badge";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import SearchBar from "material-ui-search-bar";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -16,37 +17,51 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.primary,
     [theme.breakpoints.up("sm")]: {
-      zIndex: theme.zIndex.drawer + 1
-    }
+      zIndex: theme.zIndex.drawer + 1,
+    },
   },
   rightIcons: {
-    marginLeft: theme.spacing(0.5)
+    marginLeft: theme.spacing(0.5),
   },
   spacer: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }));
 
 export default function Header({
   handleDrawerToggle,
   toggleDarkMode,
-  darkMode
+  darkMode,
 }) {
   const classes = useStyles();
+
   return (
     <AppBar position="fixed" className={classes.appbar}>
       <Toolbar>
-        <IconButton
+      <div className="search-container">
+      <SearchBar
+        style={{
+          margin: "0",
+          maxWidth: 400,
+          boxShadow: "none",
+          fontSize: "0.8rem",
+        }}
+        placeholder=""
+      >
+        {/* <SearchIcon style={{ marginLeft: 0 }} /> */}
+      </SearchBar>
+    </div>
+        {/* <IconButton
           color="inherit"
           aria-label="open drawer"
           onClick={handleDrawerToggle}
           edge="start"
         >
           <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" noWrap>
+        </IconButton> */}
+        {/* <Typography variant="h6" noWrap>
           Medium
-        </Typography>
+        </Typography> */}
         <div className={classes.spacer} />
         <IconButton
           color="inherit"
