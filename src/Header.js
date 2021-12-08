@@ -14,8 +14,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
+    backgroundColor: "white",
+    color: "yellow",
+    paddingTop: '25px',
+    paddingBottom: '25px',
+
+    // top: "50%",
+    // float: "right",
+    // position: "absolute",
+
+
+    // backgroundColor: theme.palette.background.default,
+    // color: theme.palette.text.primary,
     [theme.breakpoints.up("sm")]: {
       zIndex: theme.zIndex.drawer + 1,
     },
@@ -36,15 +46,17 @@ export default function Header({
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" className={classes.appbar}>
-      <Toolbar>
+    <AppBar position="fixed" className={classes.appbar} elevation={0} >
+      <Toolbar className={classes.appbar}>
       <div className="search-container">
       <SearchBar
         style={{
           margin: "0",
-          maxWidth: 400,
-          boxShadow: "none",
-          fontSize: "0.8rem",
+          maxWidth: 200,
+          // boxShadow: "0 0 0 2em #F4AAB9",
+          fontSize: "1rem",
+          border: "2px 2px 2px 2px",
+          background: "white",
         }}
         placeholder=""
       >
