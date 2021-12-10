@@ -5,8 +5,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Accordion from "./accordion";
+import ToggleSwitch from "./components/toggleSwitch";
+
 import { makeStyles } from "@material-ui/core/styles";
-import { capitalize } from '@material-ui/core';
 
 // const useStyles = makeStyles((theme) => ({
 //   content: {
@@ -86,7 +88,8 @@ export default function Content() {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 2, backgroundColor: "orange", borderColor: "divider" }}>
+      {/* <Box sx={{ borderBottom: 2, backgroundColor: "orange", borderColor: "divider" }}> */}
+      <Box sx={{ borderBottom: 2, borderColor: "divider" }}>
         <div className="">Content goes here</div>
 
         <Tabs
@@ -102,7 +105,9 @@ export default function Content() {
 
 {/* , { fontWeight: "600" } */}
 
-          <Tab label="Activity" {...a11yProps(0)} className={classes.root} style={{textTransform: "capitalize"}} />
+          <Tab label="Activity" {...a11yProps(0)} className={classes.in}
+          // sx={{ borderBottom: 2, borderColor: "divider" }} 
+          style={{textTransform: "capitalize"}} />
           <Tab label="Notes" {...a11yProps(1)} className={classes.root} />
           <Tab label="Emails" {...a11yProps(2)} className={classes.root} />
           <Tab label="Calls" {...a11yProps(3)} className={classes.root} />
@@ -112,6 +117,11 @@ export default function Content() {
       </Box>
       <TabPanel value={value} index={0}>
         Item One
+        <Accordion value={value} index={0}>
+        Item One
+      </Accordion>
+      
+
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -128,7 +138,6 @@ export default function Content() {
       <TabPanel value={value} index={5}>
         Item Six
       </TabPanel>
-
     </Box>
   );
 }
